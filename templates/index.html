@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Adventure</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body class="bg-dark text-light" data-theme="dark">
+    <div class="container py-5">
+        <div class="text-center mb-4">
+            <div class="theme-switch-wrapper position-absolute top-0 end-0 m-3">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-icon">☀️</span>
+                    </div>
+                </label>
+            </div>
+            <h1 class="display-4">🌤️ Weather Adventure 🎮</h1>
+            <p class="lead">Explore the weather and earn points!</p>
+            <div class="score-display">
+                <h3>Total Score: <span id="totalScore">0</span></h3>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card bg-secondary text-light">
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input type="text" id="cityInput" class="form-control" placeholder="Enter city name">
+                            <button class="btn btn-primary" onclick="checkWeather()">Check Weather</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div id="weatherResult" class="card bg-secondary text-light d-none">
+                    <div class="card-body text-center">
+                        <h2 id="cityName"></h2>
+                        <div id="weatherIcon" class="my-3"></div>
+                        <h3 id="temperature"></h3>
+                        <p id="weatherDescription"></p>
+                        <div class="points-earned mt-3">
+                            <h4 id="pointsEarned"></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="achievements mt-4 text-center">
+            <h3>Achievements</h3>
+            <div id="achievementsList" class="row justify-content-center">
+                <!-- Achievements will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
